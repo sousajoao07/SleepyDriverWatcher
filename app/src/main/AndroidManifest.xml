@@ -1,22 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.sleepydriverwatcher">
+    package="com.ssc.sleepyDriverWatcher">
 
-    //28
-    //<uses-permission android:name="com.google.android.gms.permission.ACTIVITY_RECOGNITION"/>
+    <!-- Required for 28 and below. -->
+    <uses-permission android:name="com.google.android.gms.permission.ACTIVITY_RECOGNITION" />
+    <!-- Required for 29+. -->
+    <uses-permission android:name="android.permission.ACTIVITY_RECOGNITION" />
 
-    //29+
-    <uses-permission android:name="android.permission.ACTIVITY_RECOGNITION"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
 
     <application
+        android:name="com.ssc.sleepyDriverWatcher.App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="Sleepy Driver Watcher"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.SleepyDriverWatcher">
-        <activity
-            android:name=".MainActivity"
+        android:theme="@style/Theme.UserActivityDetection">
+        <activity android:name="com.ssc.sleepyDriverWatcher.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,6 +25,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <receiver
+            android:name="com.ssc.sleepyDriverWatcher.receiver.ActivityTransitionReceiver"
+            android:exported="false"
+            android:permission="com.google.android.gms.permission.ACTIVITY_RECOGNITION">
+            <intent-filter>
+                <action android:name="action.TRANSITIONS_DATA" />
+            </intent-filter>
+        </receiver>
+
+        <service android:name="com.ssc.sleepyDriverWatcher.service.BackgroundService"/>
+
     </application>
 
 </manifest>
