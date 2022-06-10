@@ -11,20 +11,54 @@
         android:id="@+id/switchActivityTransition"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Turn On Activity Tracking"
+        android:fontFamily="monospace"
+        android:text="Activity Recognition"
+        android:textColorLink="#F44336"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/startButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="184dp"
+        android:layout_height="42dp"
+        android:background="#F44336"
+
+        android:backgroundTint="#F44336"
+        android:fontFamily="monospace"
         android:text="Start Monitoring"
+        android:textColor="#FAFAFA"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/switchActivityTransition" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="330dp"
+        android:layout_height="97dp"
+        android:fontFamily="monospace"
+        android:text="Driver Drowsiness Detector"
+        android:textAlignment="center"
+        android:textColor="#F44336"
+        android:textColorHighlight="#009688"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/switchActivityTransition"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="99dp"
+        android:layout_height="97dp"
+        app:layout_constraintBottom_toTopOf="@+id/switchActivityTransition"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:srcCompat="@drawable/caution" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

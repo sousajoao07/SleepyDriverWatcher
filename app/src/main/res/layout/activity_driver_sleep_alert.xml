@@ -9,17 +9,21 @@
     tools:context="com.ssc.sleepyDriverWatcher.DriverDrowsinessAlertActivity">
 
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/stop_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="251dp"
+        android:layout_height="78dp"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="136dp"
-        android:backgroundTint="#000000"
+        android:backgroundTint="#FF9800"
+        android:fontFamily="monospace"
         android:text="Stop Alarm"
-        android:textColor="#FAF3F3"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        tools:layout_editor_absoluteX="0dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -40,10 +44,12 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:layout_gravity="center"
+        android:fontFamily="monospace"
         android:gravity="center"
         android:text="Caution!"
         android:textColor="@android:color/white"
         android:textSize="38sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/textView"
         app:layout_constraintTop_toBottomOf="@+id/imageView"
         app:layout_constraintVertical_bias="0.809"
@@ -56,6 +62,7 @@
         android:layout_below="@+id/tv_caution"
         android:layout_gravity="center"
         android:layout_marginBottom="156dp"
+        android:fontFamily="monospace"
         android:gravity="center"
         android:text="You are sleeping, consider stoping"
         android:textColor="@android:color/white"

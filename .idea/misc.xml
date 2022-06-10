@@ -9,8 +9,11 @@
         <entry key="..\:/SSC_Project/SleepyDriverWatcher/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/SSC_Project/SleepyDriverWatcher/app/src/main/res/layout/activity_video_helper.xml" value="0.1" />
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/caution.xml" value="0.123" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_driver_sleep_alert.xml" value="0.14010416666666667" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.16485507246376813" />
+        <entry key="app/src/main/res/layout/activity_video_helper.xml" value="0.1" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />
       </map>
     </option>
