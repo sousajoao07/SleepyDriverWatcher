@@ -9,15 +9,27 @@
 
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
 
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <queries>
+        <intent>
+            <action android:name="android.media.action.IMAGE_CAPTURE" />
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.GET_CONTENT" />
+            <data android:mimeType="image/*" />
+        </intent>
+    </queries>
+
     <application
-        android:name="com.ssc.sleepyDriverWatcher.App"
+        android:name=".App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="Sleepy Driver Watcher"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.UserActivityDetection">
-        <activity android:name="com.ssc.sleepyDriverWatcher.MainActivity"
+        <activity android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,6 +37,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".DriverDrowsinessDetectionActivity"
+            android:screenOrientation="userPortrait" />
+
+        <activity android:name=".DriverDrowsinessAlertActivity"
+            android:screenOrientation="userPortrait" />
 
         <receiver
             android:name="com.ssc.sleepyDriverWatcher.receiver.ActivityTransitionReceiver"

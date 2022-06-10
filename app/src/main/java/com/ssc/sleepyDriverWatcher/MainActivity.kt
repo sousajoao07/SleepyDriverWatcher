@@ -2,15 +2,15 @@ package com.ssc.sleepyDriverWatcher
 
 import android.Manifest
 import android.app.PendingIntent
-import android.app.TaskStackBuilder
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Build
 import android.os.Bundle
+import android.view.View
+import android.widget.Button
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.NotificationCompat
 import androidx.preference.PreferenceManager
 import com.google.android.gms.location.ActivityRecognition
 import com.google.android.gms.location.ActivityRecognitionClient
@@ -44,13 +44,19 @@ class MainActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
                     switchActivityTransition.isChecked = false
                     requestActivityTransitionPermission()
                 } else {
-                    saveRadioState(true);
+                    saveRadioState(true)
                     requestForUpdates()
                 }
             } else {
                 saveRadioState(false)
                 deregisterForUpdates()
             }
+        }
+
+        val button = findViewById<View>(R.id.startButton) as Button
+        button.setOnClickListener { v ->
+            val intent = Intent(v.context, DriverDrowsinessDetectionActivity::class.java)
+            v.context.startActivity(intent)
         }
     }
 

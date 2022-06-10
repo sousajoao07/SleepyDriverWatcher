@@ -5,11 +5,11 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.widget.Toast
+import com.google.android.gms.location.ActivityTransitionResult
+import com.ssc.sleepyDriverWatcher.DriverDrowsinessDetectionActivity
+import com.ssc.sleepyDriverWatcher.MainActivity
 import com.ssc.sleepyDriverWatcher.util.ActivityTransitionsUtil
 import com.ssc.sleepyDriverWatcher.util.Constants
-import com.google.android.gms.location.ActivityTransitionResult
-import com.google.android.gms.location.DetectedActivity.IN_VEHICLE
-import com.ssc.sleepyDriverWatcher.MainActivity
 import io.karn.notify.Notify
 import java.text.SimpleDateFormat
 import java.util.*
@@ -37,7 +37,7 @@ class ActivityTransitionReceiver : BroadcastReceiver() {
                                 clickIntent = PendingIntent.getActivity(
                                     context,
                                     0,
-                                    Intent(context, MainActivity::class.java),
+                                    Intent(context, DriverDrowsinessDetectionActivity::class.java),
                                     0
                                 )
                             }
@@ -56,6 +56,15 @@ class ActivityTransitionReceiver : BroadcastReceiver() {
                     } else {
                         Notify
                             .with(context)
+                            .meta { // this: Payload.Meta
+                                // Launch the MainActivity once the notification is clicked.
+                                clickIntent = PendingIntent.getActivity(
+                                    context,
+                                    0,
+                                    Intent(context, MainActivity::class.java),
+                                    0
+                                )
+                            }
                             .content {
                                 title = "Activity Detected"
                                 text =
@@ -64,8 +73,6 @@ class ActivityTransitionReceiver : BroadcastReceiver() {
                                             event.activityType
                                         )
                                     } state"
-
-
                             }
                             .show(id = Constants.ACTIVITY_TRANSITION_NOTIFICATION_ID)
                     }

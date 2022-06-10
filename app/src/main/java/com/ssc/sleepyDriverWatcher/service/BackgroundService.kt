@@ -1,7 +1,9 @@
 package com.ssc.sleepyDriverWatcher.service
 
-import android.R
-import android.app.*
+import android.app.Notification
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.app.Service
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
@@ -10,7 +12,6 @@ import android.os.IBinder
 import androidx.annotation.RequiresApi
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationCompat.PRIORITY_MIN
-import com.ssc.sleepyDriverWatcher.MainActivity
 
 
 class BackgroundService : Service() {
