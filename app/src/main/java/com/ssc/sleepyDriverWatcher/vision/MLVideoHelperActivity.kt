@@ -2,8 +2,10 @@ package com.ssc.sleepyDriverWatcher.vision
 
 import android.Manifest
 import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.ssc.sleepyDriverWatcher.R
 import java.io.IOException
@@ -12,6 +14,7 @@ abstract class MLVideoHelperActivity : AppCompatActivity() {
     private var preview: CameraSourcePreview? = null
     private var graphicOverlay: GraphicOverlay? = null
     protected var cameraSource: CameraSource? = null
+    @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_video_helper)

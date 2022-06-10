@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../../../../layout/custom_preview.xml" value="0.15602836879432624" />
         <entry key="..\:/SSC_Project/SleepyDriverWatcher/app/src/main/res/drawable/caution.xml" value="0.1" />
         <entry key="..\:/SSC_Project/SleepyDriverWatcher/app/src/main/res/layout/activity_driver_sleep_alert.xml" value="0.1" />
         <entry key="..\:/SSC_Project/SleepyDriverWatcher/app/src/main/res/layout/activity_main.xml" value="0.25" />
