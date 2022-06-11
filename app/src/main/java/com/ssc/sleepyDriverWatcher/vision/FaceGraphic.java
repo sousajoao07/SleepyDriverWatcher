@@ -16,10 +16,13 @@
 
 package com.ssc.sleepyDriverWatcher.vision;
 
+import static android.content.ContentValues.TAG;
+
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.PointF;
+import android.util.Log;
 
 import com.google.mlkit.vision.face.Face;
 import com.google.mlkit.vision.face.FaceContour;
@@ -117,14 +120,7 @@ public class FaceGraphic extends GraphicOverlay.Graphic {
 
     // Calculate width and height of label box
     float textWidth = idPaints[colorID].measureText("ID: " + face.getTrackingId());
-    if (face.getSmilingProbability() != null) {
-      yLabelOffset -= lineHeight;
-      textWidth =
-          Math.max(
-              textWidth,
-              idPaints[colorID].measureText(
-                  String.format(Locale.US, "Smiling: %.2f", face.getSmilingProbability())));
-    }
+
     /// add drowsy
     yLabelOffset -= lineHeight;
     textWidth =
@@ -174,7 +170,7 @@ public class FaceGraphic extends GraphicOverlay.Graphic {
       }
     }
 
-    // Draws smiling and left/right eye open probabilities.
+    // Draws left/right eye open probabilities.
 
     canvas.drawText(
             "Drowsy: " + String.format(Locale.US, "%s", isDrowsy),
@@ -208,6 +204,8 @@ public class FaceGraphic extends GraphicOverlay.Graphic {
     drawFaceLandmark(canvas, FaceLandmark.RIGHT_EYE);
     drawFaceLandmark(canvas, FaceLandmark.LEFT_CHEEK);
     drawFaceLandmark(canvas, FaceLandmark.RIGHT_CHEEK);
+    drawFaceLandmark(canvas, FaceLandmark.MOUTH_LEFT);
+    drawFaceLandmark(canvas, FaceLandmark.MOUTH_RIGHT);
   }
 
   private void drawFaceLandmark(Canvas canvas, @LandmarkType int landmarkType) {
