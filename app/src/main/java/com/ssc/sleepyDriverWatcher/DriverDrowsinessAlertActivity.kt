@@ -24,7 +24,7 @@ class DriverDrowsinessAlertActivity : AppCompatActivity() {
         am.setStreamVolume(AudioManager.STREAM_MUSIC, max_volume, 0)
 
         mp = MediaPlayer.create(this, R.raw.alarm)
-        with(mp) { this?.start() }
+        //with(mp) { this?.start() }
 
         /*val button = findViewById<View>(R.id.stop_button) as Button
         button.setOnClickListener { v ->

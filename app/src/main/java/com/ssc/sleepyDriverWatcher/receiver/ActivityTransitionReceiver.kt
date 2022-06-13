@@ -6,6 +6,7 @@ import android.content.Context
 import android.content.Intent
 import android.widget.Toast
 import com.google.android.gms.location.ActivityTransitionResult
+import com.ssc.sleepyDriverWatcher.ActivityRecognitionFragment
 import com.ssc.sleepyDriverWatcher.DriverDrowsinessDetectionFragment
 import com.ssc.sleepyDriverWatcher.MainActivity
 import com.ssc.sleepyDriverWatcher.util.ActivityTransitionsUtil
@@ -15,7 +16,9 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 class ActivityTransitionReceiver : BroadcastReceiver() {
+
     override fun onReceive(context: Context, intent: Intent) {
+
         if (ActivityTransitionResult.hasResult(intent)) {
             val result = ActivityTransitionResult.extractResult(intent)
             result?.let {
@@ -34,12 +37,15 @@ class ActivityTransitionReceiver : BroadcastReceiver() {
                             .with(context)
                             .meta { // this: Payload.Meta
                                 // Launch the MainActivity once the notification is clicked.
+
                                 clickIntent = PendingIntent.getActivity(
                                     context,
                                     0,
-                                    Intent(context, DriverDrowsinessDetectionFragment::class.java),
-                                    0
+                                    Intent(context, MainActivity::class.java).
+                                    putExtra("main", "DriverDrowsinessDetectionFragment"),
+                                    0,
                                 )
+
                             }
                             .content {
                                 title = "Activity Detected"
@@ -61,7 +67,7 @@ class ActivityTransitionReceiver : BroadcastReceiver() {
                                 clickIntent = PendingIntent.getActivity(
                                     context,
                                     0,
-                                    Intent(context, MainActivity::class.java),
+                                    Intent(context, MainActivity::class.java).putExtra("main", "TitleFragment"),
                                     0
                                 )
                             }
