@@ -6,7 +6,7 @@ import android.content.Context
 import android.content.Intent
 import android.widget.Toast
 import com.google.android.gms.location.ActivityTransitionResult
-import com.ssc.sleepyDriverWatcher.DriverDrowsinessDetectionActivity
+import com.ssc.sleepyDriverWatcher.DriverDrowsinessDetectionFragment
 import com.ssc.sleepyDriverWatcher.MainActivity
 import com.ssc.sleepyDriverWatcher.util.ActivityTransitionsUtil
 import com.ssc.sleepyDriverWatcher.util.Constants
@@ -37,7 +37,7 @@ class ActivityTransitionReceiver : BroadcastReceiver() {
                                 clickIntent = PendingIntent.getActivity(
                                     context,
                                     0,
-                                    Intent(context, DriverDrowsinessDetectionActivity::class.java),
+                                    Intent(context, DriverDrowsinessDetectionFragment::class.java),
                                     0
                                 )
                             }

@@ -1,11 +1,18 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
     ext.kotlin_version = "1.7.0"
+    ext.gradleVersion = '7.2.1'
+    ext.supportlibVersion = '1.2.0'
+    ext.dataBindingCompilerVersion = gradleVersion // Always need to be the same.
+    ext.navigationVersion = '2.3.1'
+
     repositories {
         google()
         jcenter()
     }
+
     dependencies {
+        classpath "com.android.tools.build:gradle:$gradleVersion"
         classpath 'com.android.tools.build:gradle:7.2.1'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
 

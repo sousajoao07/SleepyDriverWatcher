@@ -31,6 +31,7 @@ import android.view.WindowManager;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresPermission;
+import androidx.fragment.app.Fragment;
 
 import com.google.android.gms.common.images.Size;
 
@@ -481,18 +482,19 @@ public class CameraSource {
    * @param cameraId the camera id to set rotation based on
    */
   private void setRotation(Camera camera, Camera.Parameters parameters, int cameraId) {
+
     WindowManager windowManager = (WindowManager) activity.getSystemService(Context.WINDOW_SERVICE);
     int degrees = 0;
     int rotation = windowManager.getDefaultDisplay().getRotation();
     switch (rotation) {
       case Surface.ROTATION_0:
-        degrees = 0;
+        degrees = 90;
         break;
       case Surface.ROTATION_90:
-        degrees = 0;
+        degrees = 180;
         break;
       case Surface.ROTATION_180:
-        degrees = 0;
+        degrees = 270;
         break;
       case Surface.ROTATION_270:
         degrees = 0;

@@ -60,9 +60,9 @@ public class FaceGraphic extends GraphicOverlay.Graphic {
   private final Paint[] idPaints;
   private final Paint[] boxPaints;
   private final Paint[] labelPaints;
-  private boolean isDrowsy;
+  private final boolean isDrowsy;
 
-  private volatile Face face;
+  private final Face face;
 
   FaceGraphic(GraphicOverlay overlay, Face face, boolean isDrowsy) {
     super(overlay);

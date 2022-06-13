@@ -1,2 +1,2 @@
-rootProject.name = "Sleepy Driver Watcher"
+rootProject.name = "Driver Drowsiness Detector"
 include ':app'

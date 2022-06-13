@@ -1,31 +1,49 @@
 package com.ssc.sleepyDriverWatcher.vision
 
 import android.Manifest
+import android.app.Activity
+import android.content.Context
 import android.content.pm.PackageManager
-import android.os.Build
 import android.os.Bundle
 import android.util.Log
-import androidx.annotation.RequiresApi
-import androidx.appcompat.app.AppCompatActivity
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.core.content.ContextCompat
+import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
+import com.ssc.sleepyDriverWatcher.MainActivity
 import com.ssc.sleepyDriverWatcher.R
+import com.ssc.sleepyDriverWatcher.databinding.FragmentDriverDrowsinessDetectionBinding
 import java.io.IOException
 
-abstract class MLVideoHelperActivity : AppCompatActivity() {
+abstract class MLVideoHelperActivity : Fragment() {
     private var preview: CameraSourcePreview? = null
     private var graphicOverlay: GraphicOverlay? = null
     protected var cameraSource: CameraSource? = null
-    @RequiresApi(Build.VERSION_CODES.M)
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_video_helper)
-        preview = findViewById(R.id.camera_source_preview)
-        graphicOverlay = findViewById(R.id.graphic_overlay)
-        if (checkSelfPermission(Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+    var thiscontext: Context? = null
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        val binding = DataBindingUtil.inflate<FragmentDriverDrowsinessDetectionBinding>(inflater,
+            R.layout.fragment_driver_drowsiness_detection,container,false)
+
+        preview = binding.cameraSourcePreview
+        graphicOverlay = binding.graphicOverlay
+
+        if (ContextCompat.checkSelfPermission(requireContext().applicationContext,
+                Manifest.permission.CAMERA)
+            != PackageManager.PERMISSION_GRANTED){
             requestPermissions(arrayOf(Manifest.permission.CAMERA), REQUEST_CAMERA)
         } else {
             initSource()
             startCameraSource()
         }
+
+        return binding.root
     }
 
     override fun onDestroy() {
@@ -48,14 +66,19 @@ abstract class MLVideoHelperActivity : AppCompatActivity() {
     }
 
     private fun initSource() {
-        if (cameraSource == null) {
-            cameraSource = CameraSource(this, graphicOverlay)
+        if (isAdded()) {
+            if (cameraSource == null) {
+                cameraSource = CameraSource(requireActivity(), graphicOverlay)
+            }
+            setProcessor()
+            Log.d(TAG, "ola" + requireActivity())
         }
-        setProcessor()
+        else{
+            Log.d(TAG, "ERROR - NULL CONTEXT")
+        }
     }
 
     protected abstract fun setProcessor()
-
     /**
      * Starts or restarts the camera source, if it exists. If the camera source doesn't exist yet
      * (e.g., because onResume was called before the camera source was created), this will be called
@@ -83,4 +106,5 @@ abstract class MLVideoHelperActivity : AppCompatActivity() {
         private const val REQUEST_CAMERA = 1001
         private const val TAG = "MLVideoHelperActivity"
     }
+
 }

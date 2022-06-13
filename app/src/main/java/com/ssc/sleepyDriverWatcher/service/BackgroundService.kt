@@ -17,7 +17,7 @@ import androidx.core.app.NotificationCompat.PRIORITY_MIN
 class BackgroundService : Service() {
 
     override fun onBind(intent: Intent?): IBinder? {
-        return null;
+        return null
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
