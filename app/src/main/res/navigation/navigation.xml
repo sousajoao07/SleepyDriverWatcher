@@ -23,5 +23,13 @@
     <fragment
         android:id="@+id/driverDrowsinessDetectionFragment3"
         android:name="com.ssc.sleepyDriverWatcher.DriverDrowsinessDetectionFragment"
-        android:label="Drowsiness Detector" />
+        android:label="Drowsiness Detector" >
+        <action
+            android:id="@+id/action_driverDrowsinessDetectionFragment3_to_driverDrowsinessAlertFragment2"
+            app:destination="@id/driverDrowsinessAlertFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/driverDrowsinessAlertFragment2"
+        android:name="com.ssc.sleepyDriverWatcher.DriverDrowsinessAlertFragment"
+        android:label="DriverDrowsinessAlertFragment" />
 </navigation>

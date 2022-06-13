@@ -14,9 +14,7 @@ class MainActivity : AppCompatActivity(){
     private lateinit var drawerLayout: DrawerLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        var menuFragment = intent.getStringExtra("main");
-        var fragmentManager: FragmentManager = supportFragmentManager
-        var fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
+        var menuFragment = intent.getStringExtra("main")
         super.onCreate(savedInstanceState)
         @Suppress("UNUSED_VARIABLE")
         val binding =
@@ -33,13 +31,11 @@ class MainActivity : AppCompatActivity(){
 
             // Here we can decide what do to -- perhaps load other parameters from the intent extras such as IDs, etc
             if (menuFragment == "DriverDrowsinessDetectionFragment") {
-                val driverDrowsinessDetectionFragment = DriverDrowsinessDetectionFragment()
-                fragmentTransaction.replace(android.R.id.content, driverDrowsinessDetectionFragment)
+                navController.navigate(R.id.driverDrowsinessDetectionFragment3)
             }
         } else {
             // Activity was not launched with a menuFragment selected -- continue as if this activity was opened from a launcher (for example)
-            val standardFragment = TitleFragment()
-            fragmentTransaction.replace(android.R.id.content, standardFragment)
+            navController.navigate(R.id.titleFragment)
         }
     }
 

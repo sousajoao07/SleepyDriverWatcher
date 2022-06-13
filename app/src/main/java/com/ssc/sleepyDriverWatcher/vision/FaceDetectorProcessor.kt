@@ -25,6 +25,7 @@ import com.google.mlkit.vision.face.FaceDetection
 import com.google.mlkit.vision.face.FaceDetector
 import com.google.mlkit.vision.face.FaceDetectorOptions
 import com.ssc.sleepyDriverWatcher.DriverDrowsinessAlertActivity
+import com.ssc.sleepyDriverWatcher.MainActivity
 
 class FaceDetectorProcessor(context: Context?) : VisionProcessorBase<List<Face?>?>(context) {
     private val detector: FaceDetector
@@ -50,7 +51,7 @@ class FaceDetectorProcessor(context: Context?) : VisionProcessorBase<List<Face?>
             graphicOverlay.add(FaceGraphic(graphicOverlay, face, isDrowsy))
 
             if(isDrowsy){
-                val intent = Intent(graphicOverlay.context, DriverDrowsinessAlertActivity::class.java)
+                val intent = Intent(graphicOverlay.context, MainActivity::class.java).putExtra()
                 graphicOverlay.context.startActivity(intent)
                 stop()
             }

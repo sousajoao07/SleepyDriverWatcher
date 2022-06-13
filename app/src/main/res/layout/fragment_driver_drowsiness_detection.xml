@@ -4,14 +4,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.ssc.sleepyDriverWatcher.DriverDrowsinessDetectionFragment"
-
     android:orientation="vertical"
 >
 
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
 
 
     <com.ssc.sleepyDriverWatcher.vision.CameraSourcePreview

@@ -66,7 +66,7 @@ abstract class MLVideoHelperActivity : Fragment() {
     }
 
     private fun initSource() {
-        if (isAdded()) {
+        if (isAdded) {
             if (cameraSource == null) {
                 cameraSource = CameraSource(requireActivity(), graphicOverlay)
             }
