@@ -38,12 +38,6 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".DriverDrowsinessDetectionActivity"
-            android:screenOrientation="userPortrait" />
-
-        <activity android:name=".DriverDrowsinessAlertActivity"
-            android:screenOrientation="userPortrait" />
-
         <receiver
             android:name="com.ssc.sleepyDriverWatcher.receiver.ActivityTransitionReceiver"
             android:exported="false"

@@ -2,8 +2,10 @@ package com.ssc.sleepyDriverWatcher.receiver
 
 import android.app.PendingIntent
 import android.content.BroadcastReceiver
+import android.content.ContentValues
 import android.content.Context
 import android.content.Intent
+import android.util.Log
 import android.widget.Toast
 import com.google.android.gms.location.ActivityTransitionResult
 import com.ssc.sleepyDriverWatcher.ActivityRecognitionFragment
@@ -28,7 +30,9 @@ class ActivityTransitionReceiver : BroadcastReceiver() {
                         "Transition: " + ActivityTransitionsUtil.toActivityString(event.activityType) +
                                 " (" + ActivityTransitionsUtil.toTransitionType(event.transitionType) + ")" + "   " +
                                 SimpleDateFormat("HH:mm:ss", Locale.US).format(Date())
-
+                    Log.i(ContentValues.TAG, "ola" + ActivityTransitionsUtil.toActivityString(
+                        event.activityType
+                    ) )
                     if (ActivityTransitionsUtil.toActivityString(
                             event.activityType
                         ) == "WALKING"
@@ -42,7 +46,7 @@ class ActivityTransitionReceiver : BroadcastReceiver() {
                                     context,
                                     0,
                                     Intent(context, MainActivity::class.java).
-                                    putExtra("main", "DriverDrowsinessDetectionFragment"),
+                                    putExtra("notificationWalk", true).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK),
                                     0,
                                 )
 
@@ -67,7 +71,8 @@ class ActivityTransitionReceiver : BroadcastReceiver() {
                                 clickIntent = PendingIntent.getActivity(
                                     context,
                                     0,
-                                    Intent(context, MainActivity::class.java).putExtra("main", "TitleFragment"),
+                                    Intent(context, MainActivity::class.java).
+                                            putExtra("notificationWalk", false),
                                     0
                                 )
                             }

@@ -12,6 +12,7 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import com.ssc.sleepyDriverWatcher.MainActivity
 import com.ssc.sleepyDriverWatcher.R
 import com.ssc.sleepyDriverWatcher.databinding.FragmentDriverDrowsinessDetectionBinding
@@ -42,9 +43,10 @@ abstract class MLVideoHelperActivity : Fragment() {
             initSource()
             startCameraSource()
         }
-
         return binding.root
     }
+
+
 
     override fun onDestroy() {
         super.onDestroy()

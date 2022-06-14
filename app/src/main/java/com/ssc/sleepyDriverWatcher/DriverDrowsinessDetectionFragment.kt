@@ -7,4 +7,6 @@ class DriverDrowsinessDetectionFragment : MLVideoHelperActivity() {
         cameraSource?.setMachineLearningFrameProcessor(FaceDetectorProcessor(requireContext().applicationContext))
     }
 
+    
+
 }

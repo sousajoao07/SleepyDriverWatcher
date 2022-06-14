@@ -29,8 +29,8 @@
 
         <TextView
             android:id="@+id/textViewActivityRecognition"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="244dp"
+            android:layout_height="124dp"
             android:layout_marginTop="105dp"
             android:fontFamily="monospace"
             android:text="Activity Recognition"
