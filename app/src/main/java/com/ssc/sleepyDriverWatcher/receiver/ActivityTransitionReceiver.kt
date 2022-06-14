@@ -28,7 +28,7 @@ class ActivityTransitionReceiver : BroadcastReceiver() {
 
                     if (ActivityTransitionsUtil.toActivityString(
                             event.activityType
-                        ) == "WALKING"
+                        ) == "IN_VEHICLE"
                     ) {
                         Notify
                             .with(context)

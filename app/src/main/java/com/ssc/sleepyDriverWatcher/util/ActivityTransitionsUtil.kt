@@ -65,7 +65,7 @@ object ActivityTransitionsUtil {
         return when (activity) {
             DetectedActivity.STILL -> "STILL"
             DetectedActivity.WALKING -> "WALKING"
-            DetectedActivity.IN_VEHICLE -> "IN VEHICLE"
+            DetectedActivity.IN_VEHICLE -> "IN_VEHICLE"
             else -> "UNKNOWN"
         }
     }
